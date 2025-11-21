@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAM SCIENCE | Good Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SAM SCIENCE es una academia online de tutorías, clases personalizadas y preparación para exámenes como SAT, ACT y admisión universitaria. Clases 100% online para estudiantes de Ecuador, Estados Unidos (K-12) y otros países." />
+
+  <!-- Fuente Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Iconos (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #f46e16;
+      --primary-soft: #ffe4d1;
+      --dark: #111118;
+      --light: #ffffff;
+      --muted: #b5b5b5;
+      --bg-soft: #f7f7f7;
+      --radius-lg: 18px;
+      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      color: #222222;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      color: #777777;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Animaciones básicas */
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fade-up 0.6s ease forwards;
+    }
+
+    @keyframes bar80 {
+      from { width: 0; }
+      to   { width: 80%; }
+    }
+
+    @keyframes bar90 {
+      from { width: 0; }
+      to   { width: 90%; }
+    }
+
+    @keyframes bar85 {
+      from { width: 0; }
+      to   { width: 85%; }
+    }
+
+    @keyframes float-soft {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    @keyframes logo-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-4px); }
+    }
+
+    /* Navbar (claro para que se vea el logo) */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-img-tag {
+      height: 140px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      animation: logo-float 6s ease-in-out infinite;
+    }
+
+    /* Ocultar el texto superpuesto al lado del logo */
+    .logo-area > div:last-child {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 600; /* negrita encabezado */
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+      color: #222222;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+      font-weight: 600; /* negrita botón encabezado */
+    }
+
+    /* Hero (oscuro elegante debajo del header blanco) */
+
+    #inicio {
+      padding-top: 130px;
+      background:
+        radial-gradient(circle at top left, rgba(244,110,22,0.35) 0, transparent 55%),
+        linear-gradient(135deg, #050507 0%, #111118 45%, #050507 100%);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .badge-online {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(244, 110, 22, 0.12);
+      color: #ffb98a;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(244,110,22,0.4);
+      transition: transform 0.2s ease;
+      animation: float-soft 6s ease-in-out infinite;
+    }
+
+    .badge-online i {
+      font-size: 0.8rem;
+    }
+
+    .badge-online:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.7rem;
+      color: #ffffff;
+    }
+
+    .hero-highlight {
+      color: var(--primary);
+    }
+
+    .hero-text {
+      color: #d4d4d4;
+      margin-bottom: 1.5rem;
+      font-size: 0.98rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--light);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(244, 110, 22, 0.5);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #f5f5f5;
+      border: 1px solid #3a3a3a;
+    }
+
+    .btn-ghost:hover {
+      background: #2a2a2a;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: #c5c5c5;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-meta i {
+      color: var(--primary);
+    }
+
+    .hero-media {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .hero-photo-main {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-photo-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-card {
+      background: #111118;
+      border-radius: 26px;
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #262636;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: #f5f5f5;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-card-title {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-card-sub {
+      font-size: 0.8rem;
+      color: #c0c0c0;
+      margin-bottom: 1rem;
+    }
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .subject-pill {
+      background: #191923;
+      border-radius: 999px;
+      padding: 0.4rem 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border: 1px solid #313148;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      color: #f5f5f5;
+    }
+
+    .subject-pill i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .subject-pill:hover {
+      background: #232335;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .hero-card-footer {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #c0c0c0;
+    }
+
+    /* Stats animadas */
+
+    .stats {
+      background: #ffffff;
+      padding: 40px 0 60px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .stat-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid #eeeeee;
+      text-align: left;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+      border-color: #f9d3b4;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #777777;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-number {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.15rem;
+    }
+
+    .stat-number span.counter {
+      display: inline-block;
+      min-width: 1.5ch;
+    }
+
+    .stat-note {
+      font-size: 0.8rem;
+      color: #777777;
+    }
+
+    /* Secciones genéricas */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #f0f0f0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: #f4f4f4;
+      color: #777777;
+      margin-bottom: 0.8rem;
+    }
+
+    .pill-label i {
+      color: var(--primary);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .service-card {
+      background: #111118;
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      border: 1px solid #262636;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.87rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+      color: #f5f5f5;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.6);
+      border-color: #f9d3b4;
+      background: #191923;
+    }
+
+    .service-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 12px;
+      background: #191923;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.2rem;
+      color: var(--primary);
+    }
+
+    .service-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .service-card p {
+      color: #d4d4de;
+    }
+
+    .service-link {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .service-link i {
+      font-size: 0.7rem;
+    }
+
+    .steps {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .step-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.7rem;
+      align-items: flex-start;
+      font-size: 0.88rem;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px dashed #ddd;
+      padding: 0.25rem 0.7rem;
+      color: #777777;
+    }
+
+    /* Barras de medida */
+
+    .progress-group {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .progress-item {
+      font-size: 0.8rem;
+      color: #777777;
+    }
+
+    .progress-label-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.15rem;
+    }
+
+    .progress-label-row span:last-child {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: #eee;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .progress-fill.fill-80 {
+      animation: bar80 1.1s ease forwards;
+    }
+
+    .progress-fill.fill-90 {
+      animation: bar90 1.1s ease forwards;
+    }
+
+    .progress-fill.fill-85 {
+      animation: bar85 1.1s ease forwards;
+    }
+
+    /* Mini gallery en Clases online */
+
+    .mini-gallery {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .mini-photo {
+      flex: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mini-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Sección IA */
+
+    #ia {
+      background: #ffffff;
+    }
+
+    .ai-card {
+      background: #fdfdfd;
+    }
+
+    .ai-tagline {
+      font-size: 0.86rem;
+      color: #777777;
+      margin-bottom: 0.7rem;
+    }
+
+    .ai-list {
+      font-size: 0.86rem;
+      color: #555555;
+      display: grid;
+      gap: 0.4rem;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .ai-note {
+      font-size: 0.8rem;
+      color: #999999;
+      margin-top: 0.5rem;
+    }
+
+    .ai-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .ai-badge {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: #f4f4f4;
+      border: 1px solid #e0e0e0;
+      color: #555555;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .ai-badge i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    /* Testimonios */
+
+    .testimonials {
+      background: var(--bg-soft);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .testimonial-card {
+      background: var(--light);
+      border-radius: var(--radius-lg);
+      padding: 1.3rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
+      border: 1px solid #f0f0f0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+
+    .testimonial-card p {
+      margin-bottom: 0.8rem;
+      color: #777777;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-meta {
+      font-size: 0.75rem;
+      color: #999999;
+    }
+
+    /* FAQ */
+
+    .faq-item {
+      border-radius: var(--radius-lg);
+      border: 1px solid #eee;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.7rem;
+      background: #fcfcfc;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .faq-question {
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-answer {
+      font-size: 0.85rem;
+      color: #777777;
+    }
+
+    /* Contacto */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-highlights {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .contact-item i {
+      color: var(--primary);
+      margin-top: 0.15rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    label {
+      font-size: 0.78rem;
+      color: #777777;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      padding: 0.6rem 0.75rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(244, 110, 22, 0.18);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* Servicios sección fondo oscuro */
+
+    #servicios {
+      background: #050507;
+    }
+
+    #servicios h2 {
+      color: #ffffff;
+    }
+
+    #servicios .section-subtitle {
+      color: #b5b5b5;
+    }
+
+    /* SAT section */
+
+    #sat {
+      background: #ffffff;
+    }
+
+    /* Footer oscuro */
+
+    footer {
+      border-top: 1px solid #222222;
+      padding: 1.5rem 0 1.2rem;
+      font-size: 0.8rem;
+      background: #050507;
+      color: #9a9a9a;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.7rem;
+      font-size: 1rem;
+    }
+
+    .social-links a {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid #444444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-1px);
+    }
+
+    /* Botón flotante WhatsApp */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      z-index: 1000;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Responsivo */
+
+    @media (max-width: 900px) {
+      .hero,
+      .two-column,
+      .grid-3,
+      .grid-2,
+      .testimonial-grid,
+      .contact-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        gap: 2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+      }
+
+      .hero-media {
+        margin-top: 1rem;
+      }
+
+      .hero-card {
+        margin-top: 0.4rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .testimonial-grid {
+        gap: 1rem;
+      }
+
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+        bottom: 14px;
+        right: 14px;
+      }
+
+      .logo-img-tag {
+        height: 95px;
+      }
+
+      .mini-gallery {
+        flex-direction: column;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botón flotante WhatsApp -->
+  <a
+    href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20tutor%C3%ADas."
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container navbar">
+      <div class="logo-area">
+        <img
+          src="SAM_mesa de trabajo.png"
+          alt="SAM SCIENCE logo"
+          class="logo-img-tag">
+        <div>
+          <div class="logo-text-main">SAM SCIENCE</div>
+          <div class="logo-text-sub">Good Learning</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sat">SAT</a>
+        <a href="#clases-online">Clases online</a>
+        <a href="#ia">IA</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a
+        href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20tutor%C3%ADas."
+        class="btn btn-primary nav-cta"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio">
+    <div class="container hero">
+      <div class="animate">
+        <div class="badge-online">
+          <i class="fas fa-laptop"></i> Clases 100% online · Ecuador · USA (K-12)
+        </div>
+
+        <h1>
+          Acompañamiento académico inteligente con
+          <span class="hero-highlight">SAM SCIENCE</span>.
+        </h1>
+
+        <p class="hero-text">
+          Tutorías personalizadas en matemáticas y ciencias, apoyo K-12 para Estados Unidos,
+          e intensa preparación para exámenes como SAT (enfoque principal), ACT y pruebas de admisión.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20agendar%20una%20asesor%C3%ADa."
+            target="_blank"
+            class="btn btn-primary">
+            <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
+          </a>
+
+          <a href="#servicios" class="btn btn-ghost">
+            Ver servicios <i class="fas fa-arrow-down"></i>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span><i class="fas fa-user-graduate"></i> Estudiantes de colegio, bachillerato y K-12 (USA)</span>
+          <span><i class="fas fa-globe"></i> Ecuador · Estados Unidos · Online</span>
+        </div>
+      </div>
+
+      <aside class="hero-media animate" style="animation-delay:0.15s;">
+        <div class="hero-photo-main">
+          <img src="clase-usa-1.jpg" alt="Estudiante recibiendo tutoría online de SAM SCIENCE en laptop">
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-title">Clases de ciencia y exámenes sin estrés.</div>
+          <div class="hero-card-sub">Academia online · SAM SCIENCE</div>
+
+          <div class="subjects-grid">
+            <div class="subject-pill">
+              <i class="fas fa-calculator"></i> Math K-12
+            </div>
+            <div class="subject-pill">
+              <i class="fas fa-atom"></i> Física
+            </div>
+            <div class="subject-pill">
+              <i class="fas fa-flask"></i> Química
+            </div>
+            <div class="subject-pill">
+              <i class="fas fa-dna"></i> Biología
+            </div>
+            <div class="subject-pill">
+              <i class="fas fa-graduation-cap"></i> SAT
+            </div>
+            <div class="subject-pill">
+              <i class="fas fa-file-signature"></i> ACT
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            Diseñamos un plan de estudio a la medida del estudiante, con práctica guiada,
+            explicación clara y feedback constante para familias dentro y fuera de Estados Unidos.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Stats animadas -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Horas de tutoría online</div>
+          <div class="stat-number">+<span class="counter" data-target="1800">0</span> h</div>
+          <div class="stat-note">Sesiones individuales y grupales en ciencias y matemáticas.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Estudiantes acompañados</div>
+          <div class="stat-number"><span class="counter" data-target="250">0</span>+</div>
+          <div class="stat-note">Alumnos de Ecuador, USA y otros países.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Satisfacción</div>
+          <div class="stat-number"><span class="counter" data-target="95">0</span>%</div>
+          <div class="stat-note">De familias que recomiendan SAM SCIENCE.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Años de experiencia</div>
+          <div class="stat-number">+<span class="counter" data-target="6">0</span> años</div>
+          <div class="stat-note">En tutoría, exámenes y acompañamiento académico.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre SAM SCIENCE -->
+  <section id="sobre">
+    <div class="container two-column">
+      <div class="animate">
+        <div class="pill-label">
+          <i class="fas fa-arrow-trend-up"></i> Sobre SAM SCIENCE
+        </div>
+        <h2>Tu partner académico en Ecuador y Estados Unidos.</h2>
+        <p class="section-subtitle">
+          SAM SCIENCE es una academia online enfocada en acompañar al estudiante en su día a día:
+          tareas, proyectos, exámenes y procesos de admisión en Ecuador y en el sistema K-12 de Estados Unidos.
+        </p>
+
+        <div class="card">
+          <p style="font-size: 0.9rem; color: #777777; margin-bottom: 0.8rem;">
+            Trabajamos con estudiantes de Ecuador, USA y otros países que buscan subir notas,
+            entrar a la universidad de sus sueños o simplemente entender mejor las ciencias y las matemáticas.
+          </p>
+
+          <div class="grid-2">
+            <div>
+              <h3 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Acompañamiento completo</h3>
+              <p style="font-size: 0.85rem; color: #777777;">
+                Desde el diagnóstico inicial hasta el seguimiento, construimos un camino claro de estudio.
+              </p>
+            </div>
+            <div>
+              <h3 style="font-size: 0.95rem; margin-bottom: 0.2rem;">Clases online flexibles</h3>
+              <p style="font-size: 0.85rem; color: #777777;">
+                Horarios adaptados al estudiante, considerando diferencias de huso horario y carga académica K-12.
+              </p>
+            </div>
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">Explicaciones claras</span>
+            <span class="tag">Apoyo K-12 USA</span>
+            <span class="tag">Ingreso uni Ecuador</span>
+            <span class="tag">Preparación de exámenes</span>
+          </div>
+
+          <!-- Barras de medida -->
+          <div class="progress-group">
+            <div class="progress-item">
+              <div class="progress-label-row">
+                <span>Mejora en notas de ciencias</span>
+                <span>+80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill fill-80"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-label-row">
+                <span>Estudiantes que reportan más confianza</span>
+                <span>+90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill fill-90"></div>
+              </div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-label-row">
+                <span>Casos con ingreso exitoso a la universidad</span>
+                <span>+85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill fill-85"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animate" style="animation-delay:0.1s;">
+        <h3 style="font-size: 0.98rem; margin-bottom: 0.5rem;">Ideal para estudiantes que:</h3>
+        <ul style="font-size: 0.85rem; color: #777777; display: grid; gap: 0.4rem; padding-left: 1rem; margin-bottom: 1rem;">
+          <li>Estudian en colegios de Ecuador o en el sistema K-12 de Estados Unidos.</li>
+          <li>Se preparan para SAT, ACT u otros exámenes de ingreso.</li>
+          <li>Quieren ingresar a universidades en Ecuador o al extranjero.</li>
+          <li>Necesitan guía para tesis o trabajos de investigación.</li>
+        </ul>
+
+        <p style="font-size: 0.85rem; color: #777777;">
+          Adaptamos el enfoque según el país, el programa y los objetivos académicos de cada estudiante.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios">
+    <div class="container">
+      <div class="pill-label">
+        <i class="fas fa-layer-group"></i> Servicios
+      </div>
+      <h2>Servicios pensados para USA (K-12) y Ecuador.</h2>
+      <p class="section-subtitle">
+        Apoyo académico flexible para estudiantes de colegio, bachillerato, sistema K-12 y primeros años de universidad.
+      </p>
+
+      <div class="grid-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-school"></i></div>
+          <div class="service-title">Apoyo académico K-12 (USA)</div>
+          <p>Refuerzo en Math y Science para Elementary, Middle y High School, alineado al currículo K-12.</p>
+          <a href="#contacto" class="service-link">
+            Más info <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-calculator"></i></div>
+          <div class="service-title">Tutorías de matemáticas y ciencias</div>
+          <p>Álgebra, geometría, cálculo básico, física, química y biología para Ecuador y programas internacionales.</p>
+          <a href="#contacto" class="service-link">
+            Más info <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="service-title">Preparación SAT y ACT</div>
+          <p>
+            Plan de estudio con foco fuerte en SAT (Math y Reading) y preparación para ACT, además de otros exámenes de ingreso.
+          </p>
+          <a href="#sat" class="service-link">
+            Ver sección SAT <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-university"></i></div>
+          <div class="service-title">Ingreso a universidades en Ecuador</div>
+          <p>Preparación para exámenes de admisión, especialmente en carreras de ciencias y salud, en universidades ecuatorianas.</p>
+          <a href="#contacto" class="service-link">
+            Más info <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-globe-americas"></i></div>
+          <div class="service-title">Ingreso a universidades en el exterior</div>
+          <p>Acompañamiento académico para procesos de aplicación a universidades en USA y Europa (parte académica y exámenes).</p>
+          <a href="#contacto" class="service-link">
+            Más info <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+          <div class="service-title">Asesoría para tesis y trabajos</div>
+          <p>Guía en estructura, metodología, análisis y revisión de tesis y trabajos de investigación (sin reemplazar al estudiante).</p>
+          <a href="#contacto" class="service-link">
+            Más info <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección sólo SAT -->
+  <section id="sat">
+    <div class="container two-column">
+      <div class="animate">
+        <div class="pill-label">
+          <i class="fas fa-graduation-cap"></i> SAT
+        </div>
+        <h2>Preparación intensiva para el SAT.</h2>
+        <p class="section-subtitle">
+          Diseñamos un plan claro para que el SAT deje de ser un misterio: diagnóstico, estrategia y práctica guiada.
+        </p>
+
+        <ul style="font-size: 0.86rem; color:#555555; display:grid; gap:0.4rem; padding-left:1rem; margin-bottom:1rem;">
+          <li>Diagnóstico inicial para ver tu punto de partida en Math y Reading & Writing.</li>
+          <li>Plan de estudio por semanas, con tareas y metas alcanzables.</li>
+          <li>Explicación de cada tipo de pregunta con ejemplos paso a paso.</li>
+          <li>Simulacros con tiempos reales y revisión detallada de errores.</li>
+        </ul>
+
+        <p style="font-size:0.85rem; color:#777777; margin-bottom:0.9rem;">
+          Ideal si estás en 10°, 11° o 12° (USA), o si estudias en Ecuador y quieres aplicar a universidades en Estados Unidos.
+        </p>
+
+        <a
+          href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20preparaci%C3%B3n%20para%20el%20SAT."
+          target="_blank"
+          class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i> Quiero info de SAT
+        </a>
+      </div>
+
+      <div class="card animate" style="animation-delay:0.1s;">
+        <h3 style="font-size:0.98rem; margin-bottom:0.5rem;">Qué incluye tu preparación SAT</h3>
+        <div class="steps">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-title">Evaluación y metas</div>
+              <div>Revisamos tu nivel actual y definimos la puntuación objetivo según las universidades que te interesan.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-title">Clases en vivo</div>
+              <div>Sesiones enfocadas en estrategias y en tipos de ejercicios que más puntaje suman.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-title">Práctica guiada</div>
+              <div>Hojas de práctica, tareas y correcciones explicadas para que cada error se convierta en aprendizaje.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div>
+              <div class="step-title">Simulacros</div>
+              <div>Simulacros con formato cercano al oficial para que llegues tranquilo el día del examen.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clases online -->
+  <section id="clases-online">
+    <div class="container two-column">
+      <div class="animate">
+        <div class="pill-label">
+          <i class="fas fa-video"></i> Clases online
+        </div>
+        <h2>Así funciona tu experiencia SAM SCIENCE.</h2>
+        <p class="section-subtitle">
+          Un proceso simple y claro para estudiantes en Ecuador, USA (K-12) y otros países.
+        </p>
+
+        <div class="steps">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-title">Agenda tu asesoría inicial</div>
+              <div>Nos escribes por WhatsApp, revisamos tu caso (materia, país, programa) y coordinamos la primera sesión.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-title">Diagnóstico académico</div>
+              <div>Identificamos tus fortalezas y puntos de mejora para armar un plan de estudio realista y alcanzable.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-title">Clases en vivo + práctica</div>
+              <div>Sesiones online con explicación clara, resolución de ejercicios, recursos digitales y práctica guiada.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div>
+              <div class="step-title">Seguimiento y ajustes</div>
+              <div>Monitoreamos tus avances y ajustamos el ritmo según tus metas (notas, examen, ingreso a la universidad).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animate" style="animation-delay:0.1s;">
+        <div class="mini-gallery">
+          <div class="mini-photo">
+            <img src="clase-usa-3.jpg" alt="Estudiante de high school en tutoría online con SAM SCIENCE">
+          </div>
+          <div class="mini-photo">
+            <img src="clase-usa-4.jpg" alt="Estudiante de middle school recibiendo clases online">
+          </div>
+        </div>
+
+        <h3 style="font-size: 0.98rem; margin-bottom: 0.5rem;">Beneficios de las clases online</h3>
+        <ul style="font-size: 0.85rem; color: #777777; display: grid; gap: 0.4rem; padding-left: 1rem; margin-bottom: 0.9rem;">
+          <li>Estudia desde cualquier lugar (Ecuador, USA o donde estés).</li>
+          <li>Horarios flexibles que se adaptan al colegio K-12 o a la universidad.</li>
+          <li>Material digital reutilizable para repasar cuando lo necesites.</li>
+          <li>Comunicación rápida por WhatsApp con el tutor.</li>
+        </ul>
+
+        <p style="font-size: 0.85rem; color: #777777; margin-bottom: 0.9rem;">
+          Ideal para estudiantes con carga académica alta, colegios internacionales o procesos de ingreso exigentes.
+        </p>
+
+        <a
+          href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20agendar%20mi%20primera%20clase%20online."
+          target="_blank"
+          class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i> Quiero agendar una clase
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA en SAM SCIENCE -->
+  <section id="ia">
+    <div class="container two-column">
+      <div class="animate">
+        <div class="pill-label">
+          <i class="fas fa-robot"></i> IA en SAM SCIENCE
+        </div>
+        <h2>Inteligencia artificial al servicio del aprendizaje.</h2>
+        <p class="section-subtitle">
+          Usamos herramientas de IA educativa para potenciar las clases, no para reemplazar el esfuerzo del estudiante.
+        </p>
+
+        <p class="ai-tagline">
+          La IA nos ayuda a personalizar el estudio, pero las decisiones pedagógicas siempre las toma un tutor humano.
+        </p>
+
+        <ul class="ai-list">
+          <li>Detectamos patrones de error para saber qué temas reforzar primero.</li>
+          <li>Generamos ejercicios adaptados al nivel y ritmo de cada estudiante.</li>
+          <li>Ofrecemos explicaciones alternativas cuando un concepto no queda claro a la primera.</li>
+          <li>Preparamos simulacros de exámenes que se parecen al formato real (SAT, ACT y exámenes de admisión).</li>
+        </ul>
+
+        <p class="ai-note">
+          Nunca usamos IA para hacer exámenes, tareas o trabajos por el estudiante. La tecnología es un apoyo, no un atajo.
+        </p>
+      </div>
+
+      <div class="card ai-card animate" style="animation-delay:0.1s;">
+        <h3 style="font-size: 0.98rem; margin-bottom: 0.4rem;">Cómo se ve la IA en tu clase</h3>
+        <p style="font-size:0.86rem; color:#555555; margin-bottom:0.6rem;">
+          Durante la sesión, combinamos pizarra digital, materiales propios de SAM SCIENCE y herramientas de IA
+          para crear ejemplos, preguntas tipo test y mini-retos al instante.
+        </p>
+
+        <div class="ai-badges">
+          <span class="ai-badge">
+            <i class="fas fa-wand-magic-sparkles"></i> Ejercicios al momento
+          </span>
+          <span class="ai-badge">
+            <i class="fas fa-brain"></i> Explicaciones paso a paso
+          </span>
+          <span class="ai-badge">
+            <i class="fas fa-user-check"></i> Tutor siempre presente
+          </span>
+          <span class="ai-badge">
+            <i class="fas fa-shield-heart"></i> Uso ético de la IA
+          </span>
+        </div>
+
+        <p style="font-size:0.82rem; color:#777777; margin-bottom:0.6rem;">
+          Si eres padre, puedes preguntarnos exactamente cómo usamos IA en el proceso de tu hijo: transparencia total.
+        </p>
+
+        <a
+          href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20saber%20m%C3%A1s%20sobre%20c%C3%B3mo%20usan%20IA%20en%20las%20clases."
+          target="_blank"
+          class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i> Preguntar por IA en las clases
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="testimonials">
+    <div class="container">
+      <div class="pill-label">
+        <i class="fas fa-comments"></i> Testimonios
+      </div>
+      <h2>Lo que dicen nuestros estudiantes.</h2>
+      <p class="section-subtitle">
+        Reemplaza estos textos por testimonios reales de tus estudiantes o familias.
+      </p>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>
+            “Mi hijo pasó de estar perdido en matemáticas a rendir seguro en sus exámenes.
+            La explicación es clara y el seguimiento hace la diferencia.”
+          </p>
+          <div class="testimonial-name">María, mamá de estudiante de 3° BGU</div>
+          <div class="testimonial-meta">Tutorías de matemáticas</div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>
+            “Me ayudaron a organizar mi estudio para el SAT. Saber qué practicar cada semana
+            me quitó mucha ansiedad.”
+          </p>
+          <div class="testimonial-name">Andrés, 11° grado (USA)</div>
+          <div class="testimonial-meta">Preparación SAT · K-12</div>
+        </div>
+
+        <div class="testimonial-card">
+          <p>
+            “Tenía miedo al examen de ingreso a medicina, pero con tanta práctica y explicaciones con ejemplos
+            reales todo se volvió más manejable.”
+          </p>
+          <div class="testimonial-name">Carolina, aspirante a Medicina</div>
+          <div class="testimonial-meta">Ingreso a la universidad en Ecuador</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="pill-label">
+        <i class="fas fa-circle-question"></i> Preguntas frecuentes
+      </div>
+      <h2>Preguntas frecuentes.</h2>
+      <p class="section-subtitle">
+        Si tienes más dudas, podemos resolverlas directamente por WhatsApp.
+      </p>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Las clases son 100% online?</div>
+        <div class="faq-answer">
+          Sí. Todas las sesiones son online, pensadas para estudiantes de Ecuador, Estados Unidos y otros países.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Trabajan con estudiantes K-12 en USA?</div>
+        <div class="faq-answer">
+          Sí. Apoyamos a estudiantes de Elementary, Middle y High School en Math y Science, alineados al currículo K-12.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Ayudan con ingreso a universidades en Ecuador?</div>
+        <div class="faq-answer">
+          Sí. Preparamos para exámenes de admisión, especialmente en carreras de ciencias y salud.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Pueden ayudarme con mi tesis?</div>
+        <div class="faq-answer">
+          Ofrecemos asesoría para tesis y trabajos de investigación: estructura, metodología, análisis y revisión,
+          sin sustituir el trabajo del estudiante.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <div class="container contact-grid">
+      <div class="animate">
+        <div class="pill-label">
+          <i class="fas fa-paper-plane"></i> Contacto
+        </div>
+        <h2>¿Listo para comenzar con SAM SCIENCE?</h2>
+        <p class="section-subtitle">
+          Cuéntanos qué necesitas y diseñamos un plan de estudio a tu medida.
+        </p>
+
+        <div class="contact-highlights">
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <strong>Escríbenos directo por WhatsApp</strong>
+              <div style="font-size: 0.85rem; color: #777777;">
+                Resolvemos tus dudas y te contamos cómo funcionan las tutorías para Ecuador y USA.
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Correo electrónico</strong>
+              <div style="font-size: 0.85rem; color: #777777;">
+                Puedes escribirnos a: <br>
+                <a href="mailto:samuel.caicedo@samscience.net">samuel.caicedo@samscience.net</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fas fa-file-alt"></i>
+            <div>
+              <strong>Tesis y trabajos</strong>
+              <div style="font-size: 0.85rem; color: #777777;">
+                Si necesitas guía para una tesis o trabajo de investigación, cuéntanos el tema y el plazo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.1rem;">
+          <a
+            href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20tutor%C3%ADas."
+            target="_blank"
+            class="btn btn-primary">
+            <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="card animate" style="animation-delay:0.1s;">
+        <h3 style="font-size: 0.98rem; margin-bottom: 0.6rem;">Envíanos un mensaje</h3>
+        <form action="mailto:samuel.caicedo@samscience.net" method="post" enctype="text/plain">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre o el del estudiante" />
+          </div>
+          <div>
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="Email" type="email" placeholder="tuemail@ejemplo.com" />
+          </div>
+          <div>
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="Mensaje" placeholder="Cuéntanos en qué materia, grado o examen necesitas ayuda..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Enviar mensaje
+          </button>
+        </form>
+        <p style="font-size: 0.78rem; color: #777777; margin-top: 0.7rem;">
+          *Si después quieres conectar este formulario a un servicio como Formspree, solo hay que cambiar la URL del atributo <code>action</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-logo">SAM SCIENCE · Good Learning</div>
+        <div>Academia online de ciencias, K-12 y preparación de exámenes.</div>
+      </div>
+
+      <div class="social-links">
+        <a href="https://wa.me/593984414786" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/sam_science?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/samscienceacademy" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.tiktok.com/@sam_science_academy" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script para animar los contadores -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const counters = document.querySelectorAll('.counter');
+      if (counters.length === 0) return;
+
+      function animateCounter(el) {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        if (isNaN(target)) return;
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function update(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const value = Math.floor(progress * target);
+          el.textContent = value.toLocaleString('es-ES');
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            el.textContent = target.toLocaleString('es-ES');
+          }
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+
+        counters.forEach(counter => observer.observe(counter));
+      } else {
+        counters.forEach(counter => animateCounter(counter));
+      }
+    });
+  </script>
+</body>
+</html>
