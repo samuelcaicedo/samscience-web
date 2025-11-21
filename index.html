@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Tutorías SAT y K-12 Online | Matemáticas y Ciencias | SAM SCIENCE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SAM SCIENCE es una academia o...tudiantes de Ecuador, Estados Unidos (K-12) y otros países." />
+  <meta name="description" content="SAM SCIENCE es una academia online de tutorías, clases personalizadas y preparación para exámenes como SAT, ACT y admisión universitaria. Clases 100% online para estudiantes de Ecuador, Estados Unidos (K-12) y otros países." />
 
   <!-- Fuente Google -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -152,10 +152,23 @@
       animation: logo-float 6s ease-in-out infinite;
     }
 
-    /* Ocultar el texto superpuesto al lado del logo */
+    .logo-text-main {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #111111;
+    }
+
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: #777777;
+      margin-top: -0.2rem;
+    }
+
+    /* Si quieres ocultar el texto al lado del logo, descomenta esto
     .logo-area > div:last-child {
       display: none;
     }
+    */
 
     .nav-links {
       display: flex;
@@ -189,7 +202,7 @@
       display: none; /* en desktop no uso botón encabezado */
     }
 
-    /* Hero (oscuro elegante debajo del header blanco) */
+    /* Hero (oscuro elegante) */
 
     #inicio {
       padding-top: 130px;
@@ -720,11 +733,28 @@
       font-size: 0.8rem;
     }
 
-    /* Testimonios fondo oscuro */
+    /* FONDOS GRADIENT IGUALES AL HERO */
 
+    #servicios,
+    #clases-online,
     .testimonials {
-      background: #050507;
+      background:
+        radial-gradient(circle at top left, rgba(244,110,22,0.35) 0, transparent 55%),
+        linear-gradient(135deg, #050507 0%, #111118 45%, #050507 100%);
     }
+
+    /* Servicios texto sobre fondo oscuro */
+
+    #servicios h2 {
+      color: #ffffff;
+    }
+
+    #servicios .section-subtitle {
+      color: #b5b5b5;
+    }
+
+    /* Testimonios fondo oscuro + texto claro */
+
     .testimonials h2 {
       color: #ffffff;
     }
@@ -770,6 +800,25 @@
     .testimonial-meta {
       font-size: 0.75rem;
       color: #999999;
+    }
+
+    /* Clases online sobre fondo oscuro */
+
+    #clases-online h2 {
+      color: #ffffff;
+    }
+    #clases-online .section-subtitle {
+      color: #b5b5b5;
+    }
+    #clases-online .pill-label {
+      background: #111118;
+      color: #b5b5b5;
+    }
+    #clases-online .steps {
+      color: #d4d4d4;
+    }
+    #clases-online .step-title {
+      color: #ffffff;
     }
 
     /* FAQ */
@@ -858,47 +907,11 @@
       resize: vertical;
     }
 
-    /* Servicios sección fondo oscuro */
-
-    #servicios {
-      background: #050507;
-    }
-
-    #servicios h2 {
-      color: #ffffff;
-    }
-
-    #servicios .section-subtitle {
-      color: #b5b5b5;
-    }
-
     /* SAT section */
 
     #sat {
       background: #ffffff;
     }
-
-    /* Clases online fondo oscuro */
-    #clases-online {
-      background: #050507;
-    }
-    #clases-online h2 {
-      color: #ffffff;
-    }
-    #clases-online .section-subtitle {
-      color: #b5b5b5;
-    }
-    #clases-online .pill-label {
-      background: #111118;
-      color: #b5b5b5;
-    }
-    #clases-online .steps {
-      color: #d4d4d4;
-    }
-    #clases-online .step-title {
-      color: #ffffff;
-    }
-
 
     /* Footer oscuro */
 
@@ -907,7 +920,7 @@
       padding: 1.5rem 0 1.2rem;
       font-size: 0.8rem;
       background: #050507;
-      color: #9a9aa;
+      color: #9a9a9a;
     }
 
     .footer-inner {
