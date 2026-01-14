@@ -11,10 +11,8 @@
   <meta name="description" content="SAM SCIENCE es una academia online de tutorías, clases personalizadas y preparación para exámenes como SAT, ACT y admisión universitaria. Clases 100% online para estudiantes de Ecuador," />
 </head>
 
-  <!-- Fuente Google -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Iconos (Font Awesome) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -125,6 +123,69 @@
       50%      { transform: translateY(-4px); }
     }
 
+    /* --- INICIO ESTILOS LOGO ANIMADO SVG --- */
+    
+    .svg-logo-anim {
+      height: 72px; /* Tamaño ajustado para navbar */
+      width: auto;
+      overflow: visible;
+    }
+
+    /* El Pin palpita */
+    .pin-shape {
+      fill: var(--primary);
+      filter: drop-shadow(0 0 5px rgba(244, 110, 22, 0.4));
+      transform-origin: center bottom;
+      animation: pulsePin 3s infinite ease-in-out;
+    }
+
+    @keyframes pulsePin {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* El Birrete flota */
+    .grad-cap {
+      fill: #ffffff;
+      transform-origin: center;
+      animation: floatCap 3s infinite ease-in-out;
+    }
+
+    @keyframes floatCap {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Contenedor del texto del logo */
+    .logo-text-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 8px; /* Separación del icono */
+    }
+
+    .logo-title-anim {
+      font-family: "Arial Black", "Impact", sans-serif;
+      font-size: 1.6rem; 
+      color: #111118;
+      -webkit-text-stroke: 1px var(--primary);
+      letter-spacing: 1px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .logo-subtitle-anim {
+      font-family: "Verdana", sans-serif;
+      font-size: 0.65rem;
+      color: var(--primary);
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-left: 2px;
+    }
+    /* --- FIN ESTILOS LOGO ANIMADO --- */
+
+
     /* Navbar (claro para que se vea el logo) */
 
     header {
@@ -140,28 +201,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      padding: 0.5rem 0; /* Un poco menos de padding para acomodar el logo animado */
     }
 
     .logo-area {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* LOGO más pequeño y flotando */
-.logo-img-tag {
-  height: 76px;      /* antes 90px */
-  width: auto;
-  object-fit: contain;
-  border-radius: 18px;
-  animation: logo-float 6s ease-in-out infinite;
-}
-
-    /* Ocultamos el texto que se superponía */
-    .logo-text-main,
-    .logo-text-sub {
-      display: none;
+      display: flex;
+      align-items: center;
+      /* gap eliminado, manejado por margin-left en css nuevo */
     }
 
      .nav-links {
@@ -194,9 +240,9 @@
     }
 
     .nav-cta {
-  display: inline-flex;      /* o lo que ya tengas */
-  margin-left: 2rem;         /* separa el botón del menú */
-}
+      display: inline-flex;      /* o lo que ya tengas */
+      margin-left: 2rem;         /* separa el botón del menú */
+    }
 
     /* Hero (oscuro elegante) */
 
@@ -1015,15 +1061,11 @@
     }
 
     @media (max-width: 600px) {
-  /* ... */
-
-  .logo-img-tag {
-    height: 68px;    /* antes 80px */
-  }
-
-  /* ... */
-}
-
+      
+      /* Ajuste logo animado en mobile */
+      .svg-logo-anim { height: 55px; }
+      .logo-title-anim { font-size: 1.2rem; }
+      .logo-subtitle-anim { font-size: 0.5rem; }
 
       .hero h1 {
         font-size: 1.9rem;
@@ -1041,6 +1083,7 @@
         right: 14px;
       }
 
+      /* Esta clase ya no se usa, pero la mantengo por si acaso */
       .logo-img-tag {
         height: 80px;
       }
@@ -1057,7 +1100,6 @@
 </head>
 <body>
 
-  <!-- Botón flotante WhatsApp -->
   <a
     href="https://wa.me/593984414786?text=Hola%20SAM%20SCIENCE%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20tutor%C3%ADas."
     class="whatsapp-float"
@@ -1066,17 +1108,24 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Header / Navbar -->
   <header>
     <div class="container navbar">
+      
       <div class="logo-area">
-        <img
-          src="SAM_mesa de trabajo.png"
-          alt="SAM SCIENCE logo"
-          class="logo-img-tag">
-        <div>
-          <div class="logo-text-main">SAM SCIENCE</div>
-          <div class="logo-text-sub">Good Learning</div>
+        <svg class="svg-logo-anim" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+            <path class="pin-shape" d="M50 0 C22.4 0 0 22.4 0 50 C0 85 50 130 50 130 C50 130 100 85 100 50 C100 22.4 77.6 0 50 0 Z M50 70 C39 70 30 61 30 50 C30 39 39 30 50 30 C61 30 70 39 70 50 C70 61 61 70 50 70 Z" />
+            <circle cx="50" cy="50" r="22" fill="#000" />
+            <g class="grad-cap">
+                <path d="M30 50 L50 40 L70 50 L50 60 Z" />
+                <path d="M35 52 L35 62 Q50 70 65 62 L65 52" fill="none" stroke="white" stroke-width="2" />
+                <line x1="70" y1="50" x2="70" y2="65" stroke="white" stroke-width="2" />
+                <circle cx="70" cy="65" r="1.5" fill="white" />
+            </g>
+        </svg>
+
+        <div class="logo-text-container">
+          <div class="logo-title-anim">SAM-SCIENCE</div>
+          <div class="logo-subtitle-anim">GOOD LEARNING</div>
         </div>
       </div>
 
@@ -1101,7 +1150,6 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section id="inicio">
     <div class="container hero">
       <div class="animate">
@@ -1177,7 +1225,6 @@
     </div>
   </section>
 
-  <!-- Stats animadas -->
   <section class="stats">
     <div class="container">
       <div class="stats-grid">
@@ -1205,7 +1252,6 @@
     </div>
   </section>
 
-  <!-- Sobre SAM SCIENCE -->
   <section id="sobre">
     <div class="container two-column">
       <div class="animate">
@@ -1246,7 +1292,6 @@
             <span class="tag">Preparación de exámenes</span>
           </div>
 
-          <!-- Barras de medida -->
           <div class="progress-group">
             <div class="progress-item">
               <div class="progress-label-row">
@@ -1295,7 +1340,6 @@
     </div>
   </section>
 
-  <!-- Servicios -->
   <section id="servicios">
     <div class="container">
       <div class="pill-label">
@@ -1366,7 +1410,6 @@
     </div>
   </section>
 
-  <!-- Sección sólo SAT -->
   <section id="sat">
     <div class="container two-column">
       <div class="animate">
@@ -1433,7 +1476,6 @@
     </div>
   </section>
 
-  <!-- Clases online -->
   <section id="clases-online">
     <div class="container two-column">
       <div class="animate">
@@ -1512,7 +1554,6 @@
     </div>
   </section>
 
-  <!-- IA en SAM SCIENCE -->
   <section id="ia">
     <div class="container two-column">
       <div class="animate">
@@ -1576,7 +1617,6 @@
     </div>
   </section>
 
-  <!-- Testimonios -->
   <section id="testimonios" class="testimonials">
     <div class="container">
       <div class="pill-label">
@@ -1618,7 +1658,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq">
     <div class="container">
       <div class="pill-label">
@@ -1660,7 +1699,6 @@
     </div>
   </section>
 
-  <!-- Contacto -->
   <section id="contacto">
     <div class="container contact-grid">
       <div class="animate">
@@ -1741,7 +1779,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container footer-inner">
       <div>
@@ -1766,7 +1803,6 @@
     </div>
   </footer>
 
-  <!-- Script para animar los contadores -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const counters = document.querySelectorAll('.counter');
@@ -1810,6 +1846,3 @@
   </script>
 </body>
 </html>
-
-
-
